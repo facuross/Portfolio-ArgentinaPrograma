@@ -19,10 +19,10 @@ span.text {
     font-size: 1vw;
 }
 
-.navbar {
+nav {
     display: flex;
     justify-content: space-between;
-    width: 80%;
+    width: 100%;
 }
 
 a.nav-link {
