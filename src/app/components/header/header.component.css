@@ -1,4 +1,3 @@
-
 .header {
     display: flex;
     flex-direction: row;
@@ -19,7 +18,7 @@ span.text {
     font-size: 1vw;
 }
 
-nav {
+div nav {
     display: flex;
     justify-content: space-between;
     width: 100%;
