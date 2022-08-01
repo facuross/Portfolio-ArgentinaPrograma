@@ -1,0 +1,37 @@
+#profile-photo {
+    position: relative;
+    border-radius: 6rem;
+    border: gray 1px solid;
+    width: 12rem;
+    height: 12rem;
+    margin-left: 14rem;
+    margin-top: -8rem;
+    margin-bottom: 0.5rem;
+}
+
+@media (max-width: 1041px) {
+    #profile-photo {
+    margin-left: 11rem;
+    width: 8rem;
+    height: 8rem;
+    margin-top: -5rem;
+    }
+}
+
+@media (max-width: 384px) {
+    #profile-photo {
+    margin-left: 8rem;
+    width: 5rem;
+    height: 5rem;
+    margin-top: -2rem;
+    }
+}
+
+#profile-1 {
+    margin-top: 5rem;
+    margin-left: 0;
+}
+
+#profile-2 {
+    margin-top: 5rem;
+}
