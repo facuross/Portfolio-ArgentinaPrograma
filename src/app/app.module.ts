@@ -19,6 +19,7 @@ import { FormationComponent } from './components/formation/formation.component';
 import { SkillsComponent } from './components/skills/skills.component';
 import { NgCircleProgressModule } from 'ng-circle-progress';
 import { ProyectsComponent } from './components/proyects/proyects.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { ProyectsComponent } from './components/proyects/proyects.component';
     ExperienceComponent,
     FormationComponent,
     SkillsComponent,
-    ProyectsComponent
+    ProyectsComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
