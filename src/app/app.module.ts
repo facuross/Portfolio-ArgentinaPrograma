@@ -11,13 +11,26 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import { HomeComponent } from './components/home/home.component';
+import { AboutmeComponent } from './components/aboutme/aboutme.component';
+import { ServiciosService } from './services/servicios.service';
+import { HttpClientModule } from '@angular/common/http';
+import { ExperienceComponent } from './components/experience/experience.component';
+import { FormationComponent } from './components/formation/formation.component';
+import { SkillsComponent } from './components/skills/skills.component';
+import { NgCircleProgressModule } from 'ng-circle-progress';
+import { ProyectsComponent } from './components/proyects/proyects.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     LoginComponent,
-    HomeComponent
+    HomeComponent,
+    AboutmeComponent,
+    ExperienceComponent,
+    FormationComponent,
+    SkillsComponent,
+    ProyectsComponent
   ],
   imports: [
     BrowserModule,
@@ -26,9 +39,11 @@ import { HomeComponent } from './components/home/home.component';
     MatFormFieldModule,
     MatInputModule,
     ReactiveFormsModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    HttpClientModule,
+    NgCircleProgressModule.forRoot({})
   ],
-  providers: [],
+  providers: [ServiciosService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

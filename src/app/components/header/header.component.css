@@ -1,39 +1,66 @@
 .header {
+    background-color: rgb(22, 21, 21);
     display: flex;
-    flex-direction: row;
-    background-color: rgb(33,37,41);
-    justify-content: space-between;
-    width: 100%;
+}
+
+.section-1 {
+    width: 30%;
+    display: flex;
+    align-items: center;
 }
 
 .img-logo {
-    max-width: 10%;
+    width: 30%;
 }
 
-span.text {
+.text {
     color: white;
-    font-weight: 500;
-    display:flex;
-    align-items: center;
     font-size: 1vw;
 }
 
-div nav {
+.section-2 {
+    width: 40%;
     display: flex;
-    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar-bar {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
     width: 100%;
+    height: 100%;
 }
 
 a.nav-link {
     color: white;
     font-weight: 500;
+    align-items: center;
 }
 
 .nav-item {
-    margin-left: 2rem;
+    height: 100%;
 }
 
-ul.icons{
+a.nav-link:hover {
+    color: #0D658B;
+}
+
+.section-3 {
+    width: 40%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.info {
+    display: flex;
+    flex-direction: row;
+}
+
+.icons {
     display: flex;
     list-style: none;
     align-items: center;
@@ -44,10 +71,6 @@ ul.icons{
     margin-left: 1rem;
     font-size: 1.05rem;
     align-items: center;
-}
-
-a.nav-link:hover {
-    color: #0D658B;
 }
 
 i.bi:hover {
@@ -62,6 +85,7 @@ i.bi:hover {
     padding: 0.5rem 1.5rem;
     margin-left: 0.5rem;
     font-weight: 500;
+    height: 2.5rem;
 
 }
 
@@ -70,14 +94,14 @@ i.bi:hover {
     color: black;
 }
 
-/* div.container {
+.img-banner {
+    position: relative;
+    border: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    justify-content: space-around;
     display: flex;
 }
- */
 
-.img-banner {
-    position: absolute;
-    border: none;
-    margin: 0.5rem;
-    padding: 0;
-}
+
