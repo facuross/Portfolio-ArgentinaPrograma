@@ -2,14 +2,11 @@
     margin-top: 2rem;
 }
 
-.experience-list {
-    list-style: none;
-}
-
-h1, h3 { 
-    display: inline;
-}
-
 .text {
     padding: 10px;
+}
+
+td button {
+    border: none;
+    background-color: white;
 }

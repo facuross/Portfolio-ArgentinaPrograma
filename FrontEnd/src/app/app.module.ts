@@ -1,15 +1,14 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginComponent } from './components/login/login.component';
-import { ReactiveFormsModule } from '@angular/forms';
-import {MatSnackBarModule} from '@angular/material/snack-bar';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatInputModule} from '@angular/material/input';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 import { HomeComponent } from './components/home/home.component';
 import { AboutmeComponent } from './components/aboutme/aboutme.component';
 import { ServiciosService } from './services/servicios.service';
@@ -20,6 +19,11 @@ import { SkillsComponent } from './components/skills/skills.component';
 import { NgCircleProgressModule } from 'ng-circle-progress';
 import { ProyectsComponent } from './components/proyects/proyects.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { interceptorProvider } from './services/interceptor-service';
+import { NewExperienciaComponent } from './components/experience/new-experiencia/new-experiencia.component';
+import { EditExperienciaComponent } from './components/experience/edit-experiencia.component';
+import { NewformationComponent } from './components/formation/newformation.component';
+import { EditFormationComponent } from './components/formation/edit-formation.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +36,11 @@ import { FooterComponent } from './components/footer/footer.component';
     FormationComponent,
     SkillsComponent,
     ProyectsComponent,
-    FooterComponent
+    FooterComponent,
+    NewExperienciaComponent,
+    EditExperienciaComponent,
+    NewformationComponent,
+    EditFormationComponent
   ],
   imports: [
     BrowserModule,
@@ -43,9 +51,13 @@ import { FooterComponent } from './components/footer/footer.component';
     ReactiveFormsModule,
     MatSnackBarModule,
     HttpClientModule,
-    NgCircleProgressModule.forRoot({})
+    NgCircleProgressModule.forRoot({}),
+    FormsModule
   ],
-  providers: [ServiciosService],
-  bootstrap: [AppComponent]
+  providers: [
+    ServiciosService,
+    interceptorProvider
+  ],
+  bootstrap: [AppComponent],
 })
 export class AppModule { }

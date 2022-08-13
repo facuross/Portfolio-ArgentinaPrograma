@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
+import { LoginUsuario } from 'src/app/model/login-usuario';
+import { AuthService } from 'src/app/services/auth.service';
+import { TokenService } from 'src/app/services/token.service';
 
 @Component({
   selector: 'app-login',
@@ -8,39 +12,45 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+  isLogged = false;
+  isLogginFail = false;
+  loginUsuario!: LoginUsuario;
+  nombreUsuario!: string;
+  password!: string;
+  roles: String[] = [];
+  errMsj!: string;
 
-  form: FormGroup;
 
-  constructor(private fb: FormBuilder, private _snackBar: MatSnackBar) {
-    this.form = this.fb.group({
-      usuario: ['', Validators.required],
-      password: ['', Validators.required],
-    })
-  }
+  constructor(private tokenService: TokenService, private authService: AuthService, private router: Router) { }
+
 
   ngOnInit(): void {
-  }
-
-  ingresar(){
-    const usuario = this.form.value.usuario;
-    const password = this.form.value.password;
-
-    if(usuario == "facundoross" && password == "123456") {
-
-    }else {
-      this.error();
-      this.form.reset
+    if(this.tokenService.getToken()){
+      this.isLogged = true;
+      this.isLogginFail = false;
+      this.roles = this.tokenService.getAuthorities();
     }
-
   }
 
-  error() {
-    this._snackBar.open('El usuario o contraseña ingresados son incorrectos', '', {
-      duration: 3000,
-      horizontalPosition: 'center',
-      verticalPosition: 'bottom'
-    })
+  onLogin(): void {
+    this.loginUsuario = new LoginUsuario(this.nombreUsuario, this.password);
+    this.authService.login(this.loginUsuario).subscribe(data => {
+        this.isLogged = true;
+        this.isLogginFail = false;
+        this.tokenService.setToken(data.token);
+        this.tokenService.setUserName(data.nombreUsuario);
+        this.tokenService.setAuthorities(data.authorities);
+        this.router.navigate([''])
+      }, err =>{
+        this.isLogged = false;
+        this.isLogginFail = true;
+        this.errMsj = err.error.mensaje;
+        console.log(this.errMsj);
+      }
+      );
   }
-
-
 }
+
+
+
+

@@ -52,9 +52,10 @@
                 <a href="https://github.com/facuross" target="_blank" class="nav-link"><i class="bi bi-github" style="color:white; font-size: 1.5rem;"></i></a>
             </li>
             </ul>
-        <button class="btn-login mx-3" routerLink="/login"><span class="text-btn">Login</span></button>
+        <button class="btn-login mx-3" routerLink="/login" *ngIf="!isLogged"><span class="text-btn">Login</span></button>
+        <button class="btn-login mx-3" (click)="onLogOut()" *ngIf="isLogged"><span class="text-btn">Cerrar Sesion</span></button>
     </div>
 </div>
 <div class="container col-sm-12 col-md-10 col-lg-10">
-    <img class="img-banner" src="../../../assets/img/banner-1050629_960_720.jpg" alt="banner">
+    <img class="img-banner" src="./../../../assets/img/banner-1050629_960_720.jpg" alt="banner">
 </div>
