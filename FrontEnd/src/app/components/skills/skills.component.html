@@ -1,85 +1,28 @@
 <div class="container">
     <h1>Hard & Soft Skills</h1>
+    <button type="button" class="btn btn-dark" routerLink="/nuevaskill" *ngIf="isLogged">
+        Nueva Skill
+    </button>
     <div class="row">
-        <div class="col-sm-4 col-md-4 col-lg-4">
-            <circle-progress
-            [title]="'Microsoft Office'"
-            [showUnits]="false"
-            [percent]="85"
-            [showSubtitle]="false"
-            [radius]="85"
-            [outerStrokeWidth]="16"
-            [innerStrokeWidth]="0"
-            [outerStrokeColor]="'#44FFAC'"
-            [innerStrokeColor]="'#C7E596'"
-            [animation]="true"
-            [animationDuration]="500"
-            ></circle-progress>
+        <div class="col-sm-4 col-md-4 col-lg-4" *ngFor="let skill of skills">
+                <circle-progress
+                [title]="skill.title"
+                [showUnits]="false"
+                [percent]="skill.percent"
+                [showSubtitle]="false"
+                [radius]="85"
+                [outerStrokeWidth]="16"
+                [innerStrokeWidth]="0"
+                [outerStrokeColor]="'#44FFAC'"
+                [innerStrokeColor]="'#C7E596'"
+                [animation]="true"
+                [animationDuration]="500"
+                ></circle-progress>
+                <br>
+                <button class="button" *ngIf="isLogged" routerLink='/editskill/{{skill.id}}'><i class="bi bi-pencil-square"></i> Editar</button>
+                <button class="button" *ngIf="isLogged" (click)="delete(skill.id)"><i class="bi bi-trash"></i> Eliminar</button>
         </div>
-        <div class="col-sm-4 col-md-4 col-lg-4">
-            <circle-progress
-            [percent]="85"
-            [showSubtitle]="false"
-            [radius]="85"
-            [outerStrokeWidth]="16"
-            [innerStrokeWidth]="0"
-            [outerStrokeColor]="'#44FFAC'"
-            [innerStrokeColor]="'#C7E596'"
-            [animation]="true"
-            [animationDuration]="500"
-            ></circle-progress>
-        </div>
-        <div class="col-sm-4 col-md-4 col-lg-4">
-            <circle-progress
-            [percent]="85"
-            [showSubtitle]="false"
-            [radius]="85"
-            [outerStrokeWidth]="16"
-            [innerStrokeWidth]="0"
-            [outerStrokeColor]="'#44FFAC'"
-            [innerStrokeColor]="'#C7E596'"
-            [animation]="true"
-            [animationDuration]="500"
-            ></circle-progress>
-        </div>
-        <div class="col-sm-4 col-md-4 col-lg-4">
-            <circle-progress
-            [percent]="85"
-            [showSubtitle]="false"
-            [radius]="85"
-            [outerStrokeWidth]="16"
-            [innerStrokeWidth]="0"
-            [outerStrokeColor]="'#44FFAC'"
-            [innerStrokeColor]="'#C7E596'"
-            [animation]="true"
-            [animationDuration]="500"
-            ></circle-progress>
-        </div>
-        <div class="col-sm-4 col-md-4 col-lg-4">
-            <circle-progress
-            [percent]="85"
-            [showSubtitle]="false"
-            [radius]="85"
-            [outerStrokeWidth]="16"
-            [innerStrokeWidth]="0"
-            [outerStrokeColor]="'#44FFAC'"
-            [innerStrokeColor]="'#C7E596'"
-            [animation]="true"
-            [animationDuration]="500"
-            ></circle-progress>
-        </div>
-        <div class="col-sm-4 col-md-4 col-lg-4">
-            <circle-progress
-            [percent]="85"
-            [showSubtitle]="false"
-            [radius]="85"
-            [outerStrokeWidth]="16"
-            [innerStrokeWidth]="0"
-            [outerStrokeColor]="'#44FFAC'"
-            [innerStrokeColor]="'#C7E596'"
-            [animation]="true"
-            [animationDuration]="500"
-            ></circle-progress>
-        </div>
+        <div>
+            
     </div>
-</div>
+</div>    

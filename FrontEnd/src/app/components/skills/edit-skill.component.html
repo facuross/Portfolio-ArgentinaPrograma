@@ -3,12 +3,12 @@
         <div>
             <form (ngSubmit)="onUpdate()" novalidate #f="ngForm">
                 <div class="formgroup">
-                    <label for="nombreEdu">Titulo</label>
-                    <input type="text" class="form-control" id="nombreEdu" name="nombreEdu" [(ngModel)]="formacion.nombreEdu" required>
+                    <label for="title">Skill</label>
+                    <input type="text" class="form-control" id="title" name="title" [(ngModel)]="skill.title" required>
                 </div>
                 <div class="formgroup">
-                    <label for="descripcionEdu">Descripcion</label>
-                    <input type="text" class="form-control" id="descripcionEdu" name="descripcionEdu" [(ngModel)]="formacion.descripcionEdu" required>
+                    <label for="percent">Descripcion</label>
+                    <input type="text" class="form-control" id="percent" name="percent" [(ngModel)]="skill.percent" required>
                 </div>
                 <button class="btn btn-primary">
                     Guardar Cambios
@@ -17,4 +17,3 @@
         </div>
     </div>
 </div>
-

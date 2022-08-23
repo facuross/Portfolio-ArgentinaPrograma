@@ -9,3 +9,8 @@ ul {
 .text {
     padding: 10px;
 }
+
+td button {
+    border: none;
+    background-color: white;
+}

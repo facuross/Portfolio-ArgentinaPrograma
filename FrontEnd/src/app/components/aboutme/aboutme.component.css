@@ -34,4 +34,11 @@
 
 #profile-2 {
     margin-top: 5rem;
+    display: inline-flex;
+    border: none;
+}
+
+.edit-button {
+    border: none;
+    background-color: white;
 }

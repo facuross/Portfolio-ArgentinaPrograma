@@ -1,18 +1,59 @@
 <div class="row">
     <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
-        <img class="img-fluid" id="profile-photo" src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" alt="foto perfil">
+        <img class="img-fluid" id="profile-photo"
+            [src]="getSanitizeUrl(persona.img)"
+            alt="foto perfil">
     </div>
     <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2" id="profile-1">
         <h2 class="card-title mb-2">{{persona.nombre}} {{persona.apellido}}</h2>
-        <h3 class="card-subtitle mb-1 text-muted">Contador Publico</h3>
-        <h3 class="card-subtitle mb-1 text-muted">Full Stack Developer Jr.</h3>
+        <h3 class="card-subtitle mb-1 text-muted">{{persona.titulo}}</h3>
     </div>
-    <div class="col-xs-12 col-sm-7 col-md-7 col-lg-7" id="profile-2">
+    <div class="card col-xs-12 col-sm-8 col-md-8 col-lg-8" id="profile-2">
         <h2 class="card-title">Sobre mi</h2>
-        <button class="edit-btn" onclick="cambiar_parrafo()"><i class="bi bi-pencil-square"></i></button>
-        <p class="card-text" id="text-aboutme">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Amet cupiditate distinctio beatae, labore impedit dicta ullam fugit consequatur est deleniti? Labore nesciunt qui quos perspiciatis quaerat consectetur omnis excepturi est?</p>
-        <input id="edit-aboutme" type="text" style="display:none">
+        <button  *ngIf="isLogged" class="edit-button"  style="height: 40px" (click)="openPopup()"><i class="bi bi-pencil-square"></i>Editar
+        </button>
+        <div class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display':displayStyle}">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Editar datos personales</h4>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="row">
+                                <div class="col">
+                                    <input type="text" class="form-control" placeholder="Nombre" aria-label="Nombre" [(ngModel)]="persona.nombre" name="nombre" required>
+                                </div>
+                                <div class="col">
+                                    <input type="text" class="form-control" placeholder="Apellido" aria-label="Apellido" [(ngModel)]="persona.apellido" name="apellido" required>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <label for="foto">Foto de Perfil</label>
+                                <input type="file" id="foto" [(ngModel)]="persona.img" name="img">
+                                <label for="title">Profesiones</label>
+                                <input type="text" id="title" [(ngModel)]="persona.titulo" name="titulo" required>
+                                <br>
+                                <label>Descripcion</label>
+                                <textarea id="descripcion" name="descripcion" [(ngModel)]="persona.descripcion" name="descripcion" required></textarea>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-danger" (click)="onCancel()">
+                                Cerrar
+                                </button>
+                                <button type="button" class="btn btn-success" (click)="onUpdate()">
+                                Guardar cambios
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <p class="card-text" id="text-aboutme">{{persona.descripcion}}</p>        
+        </div>
     </div>
 </div>
 
-
+    
