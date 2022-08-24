@@ -39,6 +39,11 @@
 }
 
 .edit-button {
+    display: inline;
     border: none;
     background-color: white;
+}
+
+.card-title {
+    display: inline;
 }

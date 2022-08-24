@@ -43,6 +43,7 @@ export class AboutmeComponent implements OnInit {
     const id = this.persona.id;
     this.perService.update(id, this.persona).subscribe(
       data =>{this.closePopup();
+        console.log(this.persona.img);
       }, err =>{
         alert("No se modificaron los datos")
         this.closePopup();
@@ -57,7 +58,6 @@ export class AboutmeComponent implements OnInit {
   }
 
   getSanitizeUrl(url: string){
-    console.log(url)
     return this.sanitizer.bypassSecurityTrustUrl(url);
     
   }

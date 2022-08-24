@@ -16,10 +16,10 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h4 class="modal-title">Editar datos personales</h4>
+                        <h2 class="modal-title">Editar datos personales</h2>
                     </div>
                     <div class="modal-body">
-                        <form>
+                        <form ennctype="multipart/form-data">
                             <div class="row">
                                 <div class="col">
                                     <input type="text" class="form-control" placeholder="Nombre" aria-label="Nombre" [(ngModel)]="persona.nombre" name="nombre" required>
@@ -30,7 +30,7 @@
                             </div>
                             <div class="row">
                                 <label for="foto">Foto de Perfil</label>
-                                <input type="file" id="foto" [(ngModel)]="persona.img" name="img">
+                                <input type="file" id="foto" [(ngModel)]="persona.img" name="img" accept=".png, .jpg, .jpeg">
                                 <label for="title">Profesiones</label>
                                 <input type="text" id="title" [(ngModel)]="persona.titulo" name="titulo" required>
                                 <br>
