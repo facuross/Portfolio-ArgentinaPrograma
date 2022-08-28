@@ -8,6 +8,10 @@ public class dtoEducacion {
     @NotBlank
     private String nombreEdu;
     @NotBlank
+    private String inicio;
+    @NotBlank
+    private String fin;
+    @NotBlank
     private String descripcionEdu;
 
     public dtoEducacion() {
@@ -25,6 +29,24 @@ public class dtoEducacion {
     public void setNombreEdu(String nombreEdu) {
         this.nombreEdu = nombreEdu;
     }
+
+    public String getInicio() {
+        return inicio;
+    }
+
+    public void setInicio(String inicio) {
+        this.inicio = inicio;
+    }
+
+    public String getFin() {
+        return fin;
+    }
+
+    public void setFin(String fin) {
+        this.fin = fin;
+    }
+    
+    
 
     public String getDescripcionEdu() {
         return descripcionEdu;

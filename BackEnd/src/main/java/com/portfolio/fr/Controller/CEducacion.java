@@ -47,7 +47,7 @@ public class CEducacion {
             return new ResponseEntity(new Mensaje("El nombre es obligatorio"), HttpStatus.BAD_REQUEST);
         if(sEducacion.existsByNombreEdu(dtoedu.getNombreEdu()))
             return new ResponseEntity(new Mensaje("Esa educacion ya existe"), HttpStatus.BAD_REQUEST);
-        Educacion educacion = new Educacion(dtoedu.getNombreEdu(), dtoedu.getDescripcionEdu());
+        Educacion educacion = new Educacion(dtoedu.getNombreEdu(), dtoedu.getInicio(), dtoedu.getFin(), dtoedu.getDescripcionEdu());
         sEducacion.save(educacion);
         return new ResponseEntity(new Mensaje("Educacion agregada"), HttpStatus.OK);
         
@@ -68,6 +68,8 @@ public class CEducacion {
         
         Educacion educacion = sEducacion.getOne(id).get();
         educacion.setNombreEdu(dtoedu.getNombreEdu());
+        educacion.setInicio(dtoedu.getInicio());
+        educacion.setFin(dtoedu.getFin());
         educacion.setDescripcionEdu(dtoedu.getDescripcionEdu());
         
         sEducacion.save(educacion);

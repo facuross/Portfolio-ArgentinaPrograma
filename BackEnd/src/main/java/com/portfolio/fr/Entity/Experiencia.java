@@ -13,6 +13,8 @@ public class Experiencia implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String nombreE;
+    private String inicio;
+    private String fin;
     private String descripcionE;
 
     public Experiencia() {
@@ -24,9 +26,11 @@ public class Experiencia implements Serializable {
         this.descripcionE = descripcionE;
     }*/
 
-    public Experiencia(String nombreE, String descripcionE) {
+    public Experiencia(String nombreE, String descripcionE, String inicio, String fin) {
         this.nombreE = nombreE;
         this.descripcionE = descripcionE;
+        this.inicio = inicio;
+        this.fin = fin;
     }
     
     public int getId() {
@@ -39,6 +43,22 @@ public class Experiencia implements Serializable {
 
     public String getNombreE() {
         return nombreE;
+    }
+
+    public String getInicio() {
+        return inicio;
+    }
+
+    public void setInicio(String inicio) {
+        this.inicio = inicio;
+    }
+
+    public String getFin() {
+        return fin;
+    }
+
+    public void setFin(String fin) {
+        this.fin = fin;
     }
 
     public void setNombreE(String nombreE) {

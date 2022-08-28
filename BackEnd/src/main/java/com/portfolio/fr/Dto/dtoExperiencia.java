@@ -9,13 +9,19 @@ public class dtoExperiencia {
     private String nombreE;
     @NotBlank
     private String descripcionE;
+    @NotBlank
+    private String inicio;
+    @NotBlank
+    private String fin;
 
     public dtoExperiencia() {
     }
 
-    public dtoExperiencia(String nombreE, String descripcionE) {
+    public dtoExperiencia(String nombreE, String descripcionE, String inicio, String fin) {
         this.nombreE = nombreE;
         this.descripcionE = descripcionE;
+        this.inicio = inicio;
+        this.fin = fin;
     }
 
     public String getNombreE() {
@@ -33,6 +39,24 @@ public class dtoExperiencia {
     public void setDescripcionE(String descripcionE) {
         this.descripcionE = descripcionE;
     }
+
+    public String getInicio() {
+        return inicio;
+    }
+
+    public void setInicio(String inicio) {
+        this.inicio = inicio;
+    }
+
+    public String getFin() {
+        return fin;
+    }
+
+    public void setFin(String fin) {
+        this.fin = fin;
+    }
+    
+    
     
     
 }
