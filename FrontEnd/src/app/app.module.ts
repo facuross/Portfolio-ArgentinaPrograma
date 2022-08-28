@@ -20,7 +20,7 @@ import { NgCircleProgressModule } from 'ng-circle-progress';
 import { ProyectsComponent } from './components/proyects/proyects.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { interceptorProvider } from './services/interceptor-service';
-import { NewExperienciaComponent } from './components/experience/new-experiencia/new-experiencia.component';
+import { NewExperienciaComponent } from './components/experience/new-experiencia.component';
 import { EditExperienciaComponent } from './components/experience/edit-experiencia.component';
 import { NewformationComponent } from './components/formation/newformation.component';
 import { EditFormationComponent } from './components/formation/edit-formation.component';

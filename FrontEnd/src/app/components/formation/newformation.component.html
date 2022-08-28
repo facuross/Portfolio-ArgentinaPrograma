@@ -7,11 +7,26 @@
                     <input type="text" class="form-control" id="nombreEdu" name="nombreEdu" [(ngModel)]="nombreEdu" required>
                 </div>
                 <div class="formgroup">
+                    <label for="inicio">Año de inicio</label>
+                    <select type="list" class="form-control" id="inicio" (click)="yearList()" name="year" [(ngModel)]="inicio" required>
+                        <option>Seleccione el año...</option>
+                    </select>
+                </div>
+                <div class="formgroup">
+                    <label for="fin">Año de finalizacion</label>
+                    <select type="list" class="form-control" id="fin" (click)="endYearList()" name="endYear" [(ngModel)]="fin" required >
+                        <option>Seleccione el año...</option>
+                    </select>
+                </div>
+                <div class="formgroup">
                     <label for="descripcionEdu">Descripcion</label>
                     <input type="text" class="form-control" id="descripcionEdu" name="descripcionEdu" [(ngModel)]="descripcionEdu" required>
                 </div>
                 <button class="btn btn-primary">
                     Agregar formacion
+                </button>
+                <button class="btn btn-primary" type="button" (click)="onCancel()">
+                    Cerrar
                 </button>
             </form>
         </div>

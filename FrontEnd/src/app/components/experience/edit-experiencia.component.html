@@ -7,11 +7,26 @@
                     <input type="text" class="form-control" id="nombreE" name="nombreE" [(ngModel)]="expLab.nombreE" required>
                 </div>
                 <div class="formgroup">
+                    <label for="inicio">Año de inicio</label>
+                    <select type="text" class="form-control" id="inicio" name="year" (click)="yearList()" [(ngModel)]="expLab.inicio" required>
+                        <option>Seleccione el año...</option>
+                    </select>
+                </div>
+                <div class="formgroup">
+                    <label for="fin">Año de finalizacion</label>
+                    <select type="text" class="form-control" id="fin" name="endYear" (click)="endYearList()" [(ngModel)]="expLab.fin" required >
+                        <option>Seleccione el año...</option>
+                    </select>
+                </div>
+                <div class="formgroup">
                     <label for="descripcionE">Descripcion</label>
                     <input type="text" class="form-control" id="descripcionE" name="descripcionE" [(ngModel)]="expLab.descripcionE" required>
                 </div>
                 <button class="btn btn-primary">
                     Guardar Cambios
+                </button>
+                <button class="btn btn-primary" type="button" (click)="onCancel()">
+                    Cerrar
                 </button>
             </form>
         </div>

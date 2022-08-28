@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
-import { NewExperienciaComponent } from './components/experience/new-experiencia/new-experiencia.component';
+import { NewExperienciaComponent } from './components/experience/new-experiencia.component';
 import { EditExperienciaComponent } from './components/experience/edit-experiencia.component';
 import { NewformationComponent } from './components/formation/newformation.component';
 import { EditFormationComponent } from './components/formation/edit-formation.component';
