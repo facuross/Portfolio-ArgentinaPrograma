@@ -1,27 +1,31 @@
 .header {
-    background-color: rgb(22, 21, 21);
+    background-color: #232F3E;
     display: flex;
+    border-bottom: 1px solid black
 }
 
 .section-1 {
-    width: 30%;
+    width: 20%;
     display: flex;
     align-items: center;
+    margin: auto 1rem;
 }
 
 .img-logo {
-    width: 30%;
+    width: 9rem;
 }
 
 .text {
     color: white;
-    font-size: 1vw;
+    font-size: 1rem;
 }
 
 .section-2 {
-    width: 40%;
+    width: 50%;
     display: flex;
     align-items: center;
+    justify-content: space-around;
+
 }
 
 .navbar-bar {
@@ -41,6 +45,7 @@ a.nav-link {
 
 .nav-item {
     height: 100%;
+    margin: 0 2rem;
 }
 
 a.nav-link:hover {
@@ -48,11 +53,12 @@ a.nav-link:hover {
 }
 
 .section-3 {
-    width: 40%;
+    width: 20%;
     display: flex;
     flex-direction: row;
-    justify-content: flex-end;
     align-items: center;
+    margin-right: 1rem;
+    margin-left: 3rem;
 }
 
 .info {
@@ -69,12 +75,9 @@ a.nav-link:hover {
 
 #icons {
     margin-left: 1rem;
-    font-size: 1.05rem;
+    font-size: 0.5rem;
     align-items: center;
-}
-
-i.bi:hover {
-    color: #0D658B;
+    display: flex;
 }
 
 .btn-login {
@@ -85,7 +88,9 @@ i.bi:hover {
     padding: 0.5rem 1.5rem;
     margin-left: 0.5rem;
     font-weight: 500;
-    height: 2.5rem;
+    height: 3rem;
+    justify-content: center;
+    width: 10rem;
 
 }
 

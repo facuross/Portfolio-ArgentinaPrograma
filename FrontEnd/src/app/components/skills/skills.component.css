@@ -1,3 +1,7 @@
+html {
+    background-color: #f5f7e6;
+}
+
 .container {
     margin-top: 2rem;
 }
@@ -8,5 +12,5 @@
 
 .button {
     border: none;
-    background-color: white;
+    background-color: #f5f7e6;
 }

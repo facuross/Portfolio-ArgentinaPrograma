@@ -8,44 +8,52 @@
         <h2 class="card-title mb-2">{{persona.nombre}} {{persona.apellido}}</h2>
         <h3 class="card-subtitle mb-1 text-muted">{{persona.titulo}}</h3>
     </div>
-    <div class="card col-xs-12 col-sm-8 col-md-8 col-lg-8" id="profile-2">
-        <h2 class="card-title">Sobre mi</h2>
-        <button  *ngIf="isLogged" class="edit-button"  style="height: 40px" (click)="openPopup()"><i class="bi bi-pencil-square"></i>Editar
-        </button>
+    <div class="card col-xs-12 col-sm-7 col-md-7 col-lg-7" id="profile-2">
+        <h2 class="card-title">Sobre mi <button  *ngIf="isLogged" class="edit-button"  style="height: 40px" (click)="openPopup()"><i class="bi bi-pencil-square"></i> Editar
+        </button></h2>
         <div class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display':displayStyle}">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h2 class="modal-title">Editar datos personales</h2>
+                        <h1 class="modal-title">Editar Datos Personales</h1>
                     </div>
                     <div class="modal-body">
-                        <form ennctype="multipart/form-data">
+                        <form class="info-form">
                             <div class="row">
-                                <div class="col">
-                                    <input type="text" class="form-control" placeholder="Nombre" aria-label="Nombre" [(ngModel)]="persona.nombre" name="nombre" required>
+                                <div class="col-md-6">
+                                    <label for="nombre" class="form-label">Nombre</label>
+                                    <input type="text" class="form-control" id="nombre" [(ngModel)]="persona.nombre" name="nombre" required autocomplete="off" autofocus="true">
                                 </div>
-                                <div class="col">
-                                    <input type="text" class="form-control" placeholder="Apellido" aria-label="Apellido" [(ngModel)]="persona.apellido" name="apellido" required>
+                                <div class="col-md-6">
+                                    <label for="apellido" class="form-label">Apellido</label>
+                                    <input type="text" class="form-control" id="apellido" [(ngModel)]="persona.apellido" name="apellido" required autocomplete="off">
                                 </div>
                             </div>
                             <div class="row">
-                                <label for="foto">Foto de Perfil</label>
-                                <input type="file" id="foto" [(ngModel)]="persona.img"  name="img" accept=".png, .jpg, .jpeg">
-                                <label for="title">Profesiones</label>
-                                <input type="text" id="title" [(ngModel)]="persona.titulo" name="titulo" required>
-                                <br>
-                                <label>Descripcion</label>
-                                <textarea id="descripcion" name="descripcion" [(ngModel)]="persona.descripcion" name="descripcion" required></textarea>
+                                <div class="col-md-12">
+                                    <label for="title" class="form-label">Profesiones</label>
+                                    <input type="text" class="form-control" id="title" [(ngModel)]="persona.titulo" name="titulo" required autocomplete="off">
+                                </div>    
                             </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-danger" (click)="onCancel()">
-                                Cerrar
-                                </button>
-                                <button type="button" class="btn btn-success" (click)="onUpdate()">
-                                Guardar cambios
-                                </button>
+                            <div class="row">
+                                <div class="col-md-12">    
+                                    <label for="foto" class="form-label">Foto de Perfil</label>
+                                    <input type="text" class="form-control" id="foto" [(ngModel)]="persona.img"  name="img" accept=".png, .jpg, .jpeg">
+                                </div>
+                            </div>
+                            <div class="row" id="descripcion">
+                                <label class="form-label">Descripcion</label>
+                                <textarea name="descripcion" [(ngModel)]="persona.descripcion" name="descripcion" required></textarea>
                             </div>
                         </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-dark" (click)="onCancel()">
+                        Cerrar
+                        </button>
+                        <button type="button" class="btn btn-dark" (click)="onUpdate()">
+                        Guardar cambios
+                        </button>                        
                     </div>
                 </div>
             </div>

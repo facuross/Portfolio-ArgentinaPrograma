@@ -30,4 +30,10 @@ export class HeaderComponent implements OnInit {
     this.router.navigate(['/login'])
   }
 
+  logo(){
+    const logo = document.querySelector('img');
+    return logo.src
+  }
+  
+
 }

@@ -1,10 +1,10 @@
 #profile-photo {
     position: relative;
-    border-radius: 6rem;
-    border: gray 1px solid;
-    width: 12rem;
-    height: 12rem;
-    margin-left: 14rem;
+    border-radius: 7rem;
+    border: none;
+    width: 14rem;
+    height: 14rem;
+    margin-left: 12rem;
     margin-top: -8rem;
     margin-bottom: 0.5rem;
 }
@@ -28,22 +28,102 @@
 }
 
 #profile-1 {
-    margin-top: 5rem;
-    margin-left: 0;
+    margin-top: 6.5rem;
+    margin-left: -2rem;
 }
 
 #profile-2 {
     margin-top: 5rem;
+    margin-left: 1.5rem;
     display: inline-flex;
-    border: none;
+    border: 1px solid black;
+    border-left: none;
+    border-right: none;
+    border-radius: 0;
+    background-color: #f5f7e6;
+    padding: 1rem;
 }
 
 .edit-button {
     display: inline;
     border: none;
-    background-color: white;
+    background-color:  #f5f7e6;
+    font-size: 1rem;
+}
+
+i {
+    font-size: 0.8rem;
 }
 
 .card-title {
     display: inline;
+}
+
+.modal-dialog {
+    width: 70%;
+}
+
+.modal-header {
+    place-content: center;
+    background-color: #eddbcd;
+    border-bottom: 1px solid black;
+}
+
+h1.modal-title {
+    margin-top: 8px;
+    margin-bottom: 8px;
+    
+}
+
+
+
+div .modal-content {
+    background-color:  #e8e8e8;
+}
+
+div .modal-footer {
+    background-color: #e8e8e8;
+}
+
+
+form input {
+    border: none;
+    margin-bottom: 1rem;
+    padding: 0.2rem;
+    background-color:  #e8e8e8;
+    border-top: 1px solid black;
+    border-radius: 0px;
+    
+}
+
+form input:focus {
+    box-shadow: 0 0 0 0.15rem rgba(14, 39, 131, 0.5);
+    border-radius: 3px;
+    border: none;
+    background-color: black;
+    color: white;
+}
+
+form label {
+    font-weight: 700;
+}
+
+
+textarea {
+    border-radius: 5px;
+    padding: 12px;
+    margin: 12px;
+    width: 95%;
+}
+
+div.modal-footer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.btn-dark{
+    display:flex;
+    justify-content: space-around;
+    width: 10rem;
 }
