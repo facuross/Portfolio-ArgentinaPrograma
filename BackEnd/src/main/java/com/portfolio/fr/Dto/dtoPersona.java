@@ -21,7 +21,7 @@ public class dtoPersona {
     private String apellido;
     
     @NotBlank
-    @Size(min = 1, max=255, message="no cumple con la longitud")
+    @Size(min = 1, max=500, message="no cumple con la longitud")
     private String img;
     
     @NotBlank
