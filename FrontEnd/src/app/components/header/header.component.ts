@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { TokenService } from 'src/app/services/token.service';
+import { HomeComponent } from '../home/home.component';
 
 @Component({
   selector: 'app-header',
@@ -8,6 +9,7 @@ import { TokenService } from 'src/app/services/token.service';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
+
   isLogged = false;
   
 
@@ -34,6 +36,11 @@ export class HeaderComponent implements OnInit {
     const logo = document.querySelector('img');
     return logo.src
   }
-  
 
+  closeMenu(){
+    const menu = document.querySelector('input');
+    if (menu.checked) {
+        menu.checked = false;
+      };
+    }
 }

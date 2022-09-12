@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Educacion } from 'src/app/model/educacion';
 import { SEducacionService } from 'src/app/services/s-educacion.service';
@@ -14,7 +15,8 @@ export class EditFormationComponent implements OnInit {
   formacion: Educacion = null;
 
 
-  constructor(private sEducacion: SEducacionService, private router: Router, private activatedRouter: ActivatedRoute) { }
+  constructor(private sEducacion: SEducacionService, private router: Router, private activatedRouter: ActivatedRoute, 
+    private snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
     const id = this.activatedRouter.snapshot.params['id'];
@@ -31,13 +33,14 @@ export class EditFormationComponent implements OnInit {
     const id = this.activatedRouter.snapshot.params['id'];
     if(this.formacion.inicio<= this.formacion.fin || this.formacion.fin === "Actualidad"){
       this.sEducacion.update(id, this.formacion).subscribe(data =>{
+        this.succesAlert();
         this.router.navigate(['']);
         }, err => {
-          alert("Error al modificar experiencia");
+          this.failAlert();
         this.router.navigate(['']);
         });
     } else {
-      alert("El año de inicio no puede ser mayor al año de finalización")
+        this.errorAlert();
     }
   }
 
@@ -85,4 +88,20 @@ export class EditFormationComponent implements OnInit {
     this.router.navigate(['']);
   }
 
+  durationInSeconds = 5;
+
+  succesAlert(){
+    this.snackBar.open('¡Los datos han sido modificados correctamente!', 'Cerrar', {
+      duration: this.durationInSeconds * 1000 });
+    }
+
+  failAlert(){
+    this.snackBar.open('Ocurrió un error durante la carga', 'Cerrar', {
+      duration: this.durationInSeconds * 1000 });
+    }
+
+  errorAlert(){
+    this.snackBar.open('El año de inicio debe ser menor o igual que el año de finalización', 'Cerrar', {
+    duration: this.durationInSeconds * 1000 });
+    } 
 }

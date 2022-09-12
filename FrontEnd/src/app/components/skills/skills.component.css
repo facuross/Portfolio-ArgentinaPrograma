@@ -1,16 +1,43 @@
-html {
-    background-color: #f5f7e6;
-}
-
 .container {
-    margin-top: 2rem;
+    margin-top: 5rem;
 }
 
 .row {
     text-align: center;
 }
 
-.button {
-    border: none;
-    background-color: #f5f7e6;
+@media (max-width: 768px) { 
+    div.row div{
+        width: 50%;
+    }
 }
+
+@media (max-width: 436px) { 
+    div.row div{
+        width: 100%;
+    }
+}  
+
+
+div.container h1 {
+    width: 25%;
+    font-family: Oswald, sans-serif;
+    color: #33343d;
+}
+
+
+.btn {
+    margin-bottom: 2rem;
+    border: none;
+    box-shadow: 0 0 0 0px rgba(82, 101, 143, 0.8);
+    background-color: #14540d !important;
+    transition: all 0.5s;
+    width: 10rem; 
+}
+
+.btn:hover {
+    box-shadow: 0 0 0 2px rgba(82, 101, 143, 0.8);
+}
+
+
+

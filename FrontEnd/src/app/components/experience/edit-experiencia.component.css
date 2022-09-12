@@ -1,0 +1,114 @@
+
+.contenedor {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+}
+
+.wave {
+    width: 50%;
+    height: 100%;
+    background: #bdc3c7; 
+    background: -webkit-linear-gradient(to right, hsl(217, 89%, 61%, 0.45), #373B44);
+    background: linear-gradient(to right, hsl(217, 89%, 61%, 0.45), #373B44), url(../../../assets/img/work.jpg); 
+    background-size: cover;
+}
+
+.formulario {
+    padding: 1rem;
+    display: flex;
+    justify-content: flex-start;
+    width: 50%;
+    height: 100%;
+    
+}
+
+form { 
+    width: 80%;
+    align-self: center;
+}
+
+label {
+    margin-bottom: 0.5rem;
+    font-family: 'Nunito Sans', sans-serif;
+    font-weight: 300;
+    color: grey;
+}
+
+.title {
+    margin-bottom: 3rem;
+}
+
+
+div input {
+    width: 100%;
+    border: 2px solid #eaefca;
+    height: 2.5rem;
+    border-radius: 0.2rem;
+}
+
+div.time-period {
+    display: flex;
+    margin-bottom: 3rem;
+}
+
+.time-start {
+    width: 50%;
+}
+
+.time-end {
+    width: 50%;
+    justify-content: flex-end;
+}
+
+select {
+    border: none;
+    height: 2.5rem;
+    border: 2px solid #eaefca;
+    border-radius: 0.2rem;
+}
+
+#inicio {
+    width: 50%;
+}
+
+#fin {
+    width: 50%;
+}
+
+.description {
+    margin-bottom: 2rem;
+}
+
+#descripcionE {
+    width: 100%;
+    height: 12rem;
+    border-radius: 0.2rem;
+    border: 2px solid #eaefca;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 4rem;
+}
+
+.btn-1 {
+    border-radius: 2rem;
+    width: 30%;
+    color: #51566B;
+    border: 1px solid #51566b;
+    height: 50px; 
+    font-size: 1.2rem;
+    font-weight: 300;
+}
+
+.btn-2 {
+    background-color: #51566B;
+    border-radius: 2rem;
+    width: 30%;
+    border: none;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: 300;
+}

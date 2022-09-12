@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Experiencia } from 'src/app/model/experiencia';
@@ -16,7 +17,7 @@ export class NewExperienciaComponent implements OnInit {
   descripcionE: string = '';
 
 
-  constructor(private sExperiencia: SExperienciaService, private router: Router) { }
+  constructor(private sExperiencia: SExperienciaService, private router: Router, private snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
     this.onLoad();
@@ -27,15 +28,15 @@ export class NewExperienciaComponent implements OnInit {
     if(this.inicio<= this.fin || this.fin === "Actualidad"){
     this.sExperiencia.save(expe).subscribe(
       data =>{
-        alert("Experiencia agregada");
+        this.succesAlert();
         this.router.navigate(['']);
       }, err =>{
-        alert("Falló");
+        this.failAlert();
         this.router.navigate(['']);
       }
     )
     } else {
-      alert("El año de inicio no puede ser mayor al año de finalización")
+      this.errorAlert();
     }
   }
 
@@ -46,8 +47,6 @@ export class NewExperienciaComponent implements OnInit {
   public onLoad(){
     this.yearList();
     this.endYearList();
-    
-
   }
   
   public yearList() {
@@ -58,9 +57,7 @@ export class NewExperienciaComponent implements OnInit {
     for(let i = 1991; i<=currentYear; i++){
       year[i-1991] = i;
     }
-
     this.addOptions("year", year);
-    
   }
   }
 
@@ -73,10 +70,8 @@ export class NewExperienciaComponent implements OnInit {
       endYear[i-1991] = i;
     }
     endYear[currentYear+1] = 'Actualidad';
-
     this.addOptions("endYear", endYear);
-    
-  }
+    }
   }
 
   
@@ -89,7 +84,23 @@ export class NewExperienciaComponent implements OnInit {
     }
     
   } 
-  
+
+  durationInSeconds = 5;
+
+  succesAlert(){
+    this.snackBar.open('¡La carga ha sido exitosa!', 'Cerrar', {
+      duration: this.durationInSeconds * 1000 });
+    }
+
+  failAlert(){
+    this.snackBar.open('Ocurrió un error durante la carga', 'Cerrar', {
+      duration: this.durationInSeconds * 1000 });
+    }
+
+  errorAlert(){
+    this.snackBar.open('El año de inicio debe ser menor o igual que el año de finalización', 'Cerrar', {
+    duration: this.durationInSeconds * 1000 });
+    }    
 }
 
 

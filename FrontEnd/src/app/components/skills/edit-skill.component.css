@@ -1,0 +1,53 @@
+div.contenedor { 
+    height: 100%;
+    width: 100%;
+    background: #C9D6FF;  
+    background: -webkit-linear-gradient(to top, hsl(226, 100%, 89%, 0.5), rgba(237, 213, 213, 0.9));  
+    background: linear-gradient(to top, hsl(226, 100%, 89%, 0.5), rgba(253, 216, 216, 0.9)), url(../../../assets/img/skills-1.jpg);  
+    background-size: cover;
+}
+
+form {
+    display:flex;
+    flex-direction: column;
+    width: 100%;
+
+}
+
+.formgroup {
+    display: inline;
+    justify-content: center;
+    align-self: center;
+    width: 50%;
+    height: 100%;
+}
+
+input {
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px black solid;
+    border-radius: 0;
+}
+
+input:focus {
+    border-radius: 0.2rem;
+    background: #b92b27;
+    background: -webkit-linear-gradient(to top, #1565c05b, #b92c2723); 
+    background: linear-gradient(to top, #1565c04a, #b92c272a); 
+}
+
+label {
+    margin: 1rem auto;
+    font-weight: 700;
+    font-size: 1rem;
+    
+}
+
+.buttons {
+    margin-top: 3rem;
+    align-self: center;
+    width: 50%;
+    display: flex;
+    justify-content: space-evenly;
+}
+

@@ -1,28 +1,37 @@
 <div class="container">
-    <h1>Hard & Soft Skills</h1>
+    <h1>Hard & Soft Skills</h1><br>
     <button type="button" class="btn btn-dark" routerLink="/nuevaskill" *ngIf="isLogged">
         Nueva Skill
     </button>
     <div class="row">
-        <div class="col-sm-4 col-md-4 col-lg-4" *ngFor="let skill of skills">
+        <div class="col-sm-4 col-md-4 col-lg-4" style="margin-bottom: 2rem;" *ngFor="let skill of skills">
                 <circle-progress
-                [title]="skill.title"
+                [imageSrc]="skill.img"
+                [showImage]="true"
+                [imageHeight]="105"
+                [imageWidth]="105"
                 [showUnits]="false"
                 [percent]="skill.percent"
                 [showSubtitle]="false"
-                [radius]="85"
-                [outerStrokeWidth]="16"
-                [innerStrokeWidth]="0"
+                [radius]="100"
+                [outerStrokeWidth]="10"
+                [innerStrokeWidth]="10"
+                [space]="-10"
+                [innerStrokeColor]="'#e8e8e8'"
                 [outerStrokeColor]="'#44FFAC'"
-                [innerStrokeColor]="'#C7E596'"
                 [animation]="true"
                 [animationDuration]="500"
+                [backgroundStroke]="'#000000'"
+                [backgroundPadding]="-10"
+                [backgroundColor]="'#ffffff'"
+                [clockwise]="false"
                 ></circle-progress>
                 <br>
-                <button class="button" *ngIf="isLogged" routerLink='/editskill/{{skill.id}}'><i class="bi bi-pencil-square"></i> Editar</button>
-                <button class="button" *ngIf="isLogged" (click)="delete(skill.id)"><i class="bi bi-trash"></i> Eliminar</button>
-        </div>
+                <div>
+                    <h2>{{skill.title}}</h2>
+                </div>
+                <button class="changes" *ngIf="isLogged" routerLink='/editskill/{{skill.id}}'><i class="bi bi-pencil-square" style="color:#e8e8e8"></i><span style="color:#e8e8e8"> Editar</span></button>
+                <button class="changes" *ngIf="isLogged" (click)="delete(skill.id)"><i class="bi bi-trash"style="color:#e8e8e8"></i><span style="color:#e8e8e8"> Eliminar</span></button>
         <div>
-            
     </div>
 </div>    

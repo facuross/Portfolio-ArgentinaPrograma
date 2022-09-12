@@ -1,20 +1,43 @@
-html {
-    background-color: #f5f7e6;
-}
-
 .container {
-    margin-top: 2rem;
+    margin-top: 5rem;
 }
 
-ul {
-    list-style: none;
+h1 {
+    width: 25%;
+    font-family: Oswald, sans-serif;
+    color: #33343d;
 }
 
-.text {
+.btn {
+    margin-bottom: 2rem;
+    border: none;
+    box-shadow: 0 0 0 0px rgba(82, 101, 143, 0.8);
+    background-color: #14540d !important;
+    transition: all 0.5s; 
+    width: 10rem;
+}
+
+.btn:hover {
+    box-shadow: 0 0 0 2px rgba(82, 101, 143, 0.8);
+}
+
+div.list { 
+    margin-bottom: 2rem;
+}
+
+div.project-title{
+    align-items: baseline;
+    width: 100%;
+    margin-bottom: 8px;
+}
+
+.description {
+    margin-right: 3rem;
     padding: 10px;
 }
 
-td button {
-    border: none;
-    background-color: #f5f7e6;
+div.buttons { 
+    display: flex;
+    justify-content: flex-end;
 }
+

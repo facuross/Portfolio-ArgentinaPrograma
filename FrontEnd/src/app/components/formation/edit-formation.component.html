@@ -1,35 +1,47 @@
-<div class="container">
-    <div class="row">
-        <div>
-            <form (ngSubmit)="onUpdate()" novalidate #f="ngForm">
-                <div class="formgroup">
-                    <label for="nombreEdu">Titulo</label>
-                    <input type="text" class="form-control" id="nombreEdu" name="nombreEdu" [(ngModel)]="formacion.nombreEdu" required>
-                </div>                
-                <div class="formgroup">
+<div class="contenedor">
+    <div class="wave" style="overflow: hidden;" ><svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;"><path d="M416.13,-6.41 C354.62,41.94 470.31,83.39 378.32,157.40 L500.00,150.00 L500.00,0.00 Z" style="stroke: none; fill: #fafbf3;"></path></svg></div>
+    <div class="formulario">
+    <form class="form" (ngSubmit)="onUpdate()"  novalidate #f="ngForm">
+        <div class="title">
+                <label for="nombreE">Nombre de la Institución</label>
+                <input type="text" id="nombreE" name="nombreE" [(ngModel)]="formacion.nombreEdu" required autocomplete="off">
+            </div>
+            <div class="time-period">
+                <div class="time-start">
+                    <div>
                     <label for="inicio">Año de inicio</label>
-                    <select type="list" class="form-control" id="inicio" name="year" [(ngModel)]="formacion.inicio" required>
-                        <option>Seleccione el año...</option>
+                    </div>
+                    <div>
+                    <select id="inicio" name="year" [(ngModel)]="formacion.inicio" required>
+                        <option disabled value>Seleccione el año...</option>
                     </select>
+                    </div>
                 </div>
-                <div class="formgroup">
+                <div class="time-end">
+                    <div>
                     <label for="fin">Año de finalizacion</label>
-                    <select type="list" class="form-control" id="fin" name="endYear" [(ngModel)]="formacion.fin" required >
-                        <option>Seleccione el año...</option>
+                    </div>
+                    <div>
+                    <select id="fin" name="endYear" [(ngModel)]="formacion.fin" required >
+                        <option disabled value>Seleccione el año...</option>
                     </select>
+                    </div>
                 </div>
-                <div class="formgroup">
-                    <label for="descripcionEdu">Descripcion</label>
-                    <input type="text" class="form-control" id="descripcionEdu" name="descripcionEdu" [(ngModel)]="formacion.descripcionEdu" required>
-                </div> 
-                <button class="btn btn-primary">
-                    Guardar Cambios
+            </div>
+                <div class="description">
+                    <label for="descripcionE">Descripcion</label>
+                    <textarea type="text" id="descripcionE" name="descripcionE" [(ngModel)]="formacion.descripcionEdu" required></textarea>
+                </div>
+                <hr style="color:grey; margin-top:3rem">
+                <div class="buttons">
+                <button class="btn-1">
+                    Agregar
                 </button>
-                <button class="btn btn-primary" type="button" (click)="onCancel()">
+                <button class="btn-2" type="button" (click)="onCancel()">
                     Cerrar
                 </button>
+            </div>
             </form>
         </div>
     </div>
-</div>
 

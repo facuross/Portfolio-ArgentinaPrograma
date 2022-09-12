@@ -1,26 +1,28 @@
 <div class="container">
-    <div class="row">
-        <h1>Formacion Academica</h1>
-        <div class="col-lg-2">
-            <button type="button" class="btn btn-dark" routerLink='/nuevaedu' *ngIf="isLogged">
-                Nueva Formacion
-            </button>
+    <div class="title">
+        <h1 id="formation">Formación Academica</h1><br>
+        <button type="button" class="btn btn-dark" routerLink='/nuevaedu' *ngIf="isLogged">
+            Nueva Formación
+        </button>
+    </div>
+    <div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)">
+    <div class="example-custom-placeholder" *cdkDragPlaceholder></div>
+    <div class="list" *ngFor="let Educacion of educacion" cdkDrag>
+        <div class="header">
+            <div class="item-title">
+                <h2 style="margin-bottom: 8px">{{Educacion.nombreEdu}}</h2>
+            </div>
+            <div class="time-period">
+                {{Educacion.inicio}} - {{Educacion.fin}}
+            </div>
         </div>
-        <div class="col-lg-11">
-        <table class="table">
-            <tbody>
-                <tr *ngFor="let Educacion of educacion">
-                    <td><h2>{{Educacion.nombreEdu}}</h2></td>
-                    <td>{{Educacion.inicio}} - {{Educacion.fin}}</td>
-                    <td>{{Educacion.descripcionEdu}}</td>
-                    <td *ngIf="isLogged">
-                        <button routerLink='/editedu/{{Educacion.id}}'><i class="bi bi-pencil-square"></i> Editar</button>
-                    </td>
-                    <td *ngIf="isLogged">
-                        <button (click)="delete(Educacion.id)"><i class="bi bi-trash"></i> Eliminar</button>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+        <div class="description">
+            <p>{{Educacion.descripcionEdu}}</p>
+        </div>
+        <div class="buttons">
+            <button class="changes" *ngIf="isLogged" routerLink='/editedu/{{Educacion.id}}'><i class="bi bi-pencil-square" style="color:#e8e8e8"></i><span style="color:#e8e8e8"> Editar</span></button>
+            <button class="changes" *ngIf="isLogged" (click)="delete(Educacion.id)"><i class="bi bi-trash"style="color:#e8e8e8"></i><span style="color:#e8e8e8"> Eliminar</span></button>
+        </div>
+        <hr>
     </div>
 </div>

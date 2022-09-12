@@ -2,10 +2,66 @@
 
 html, body { 
     height: 100%; 
-    background-color: #f5f7e6 !important; 
+    background-color: hsl(67, 50%, 97%) !important; 
 }
+
+
 body {
     margin: 0; 
     font-family: Roboto, "Helvetica Neue", sans-serif; 
-    background-color: #f5f7e6 !important; 
+    
     }
+
+div.item-title h2 { 
+    font-family: Oswald, sans-serif;
+    font-weight: 500;
+    color: #54668E;
+}
+
+p {
+    font-size: 1rem;
+}
+
+div.description p {
+    padding-left: 2rem;
+    padding-right: 5rem;
+}
+
+.changes {
+    border: none;
+    background-color: #056571;
+    border-radius: 4px;
+    margin-right: 0.5rem;
+    height: 2rem;
+    width: 5.5rem;
+    transition: all 0.5s;
+}
+
+.changes:hover {
+    box-shadow: 0 0 0 2px rgba(13, 101, 139, 0.42);
+}
+
+.cdk-drag-preview {
+    box-sizing: border-box;
+    border-radius: 4px;
+    box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
+                0 8px 10px 1px rgba(0, 0, 0, 0.14),
+                0 3px 14px 2px rgba(0, 0, 0, 0.12);
+}
+  
+.cdk-drag-placeholder {
+    opacity: 0;
+}
+  
+.cdk-drag-animating {
+    transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.list:last-child {
+    border: none;
+}
+  
+.example-list.cdk-drop-list-dragging .list:not(.cdk-drag-placeholder) {
+    transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+

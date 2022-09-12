@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Experiencia } from 'src/app/model/experiencia';
 import { SExperienciaService } from 'src/app/services/s-experiencia.service';
 import { TokenService } from 'src/app/services/token.service';
+import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-experience',
@@ -10,8 +12,8 @@ import { TokenService } from 'src/app/services/token.service';
 })
 export class ExperienceComponent implements OnInit {
   expe: Experiencia[] = [];
-
-  constructor(private sExperiencia: SExperienciaService, private tokenService: TokenService) { }
+  
+  constructor(private sExperiencia: SExperienciaService, private tokenService: TokenService, private snackBar: MatSnackBar) { }
 
   isLogged = false;
 
@@ -35,10 +37,27 @@ export class ExperienceComponent implements OnInit {
       this.sExperiencia.delete(id).subscribe(
         data => {
         this.cargarExperiencia();
+        this.deletedAlert();
       })
     }
   }
 
+  durationInSeconds = 5;
+
+  deletedAlert(){
+    this.snackBar.open('¡Se ha eliminado la experiencia!', 'Cerrar', {
+      duration: this.durationInSeconds * 1000 });
+    }
 
 
+
+  drop(event: CdkDragDrop<Experiencia[]>) {
+    if(this.isLogged){
+    moveItemInArray(this.expe, event.previousIndex, event.currentIndex);
+    
+  }
 }
+}
+
+
+

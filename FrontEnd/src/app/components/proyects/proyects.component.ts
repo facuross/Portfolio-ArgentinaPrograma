@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Projects } from 'src/app/model/projects';
 import { ProjectsService } from 'src/app/services/projects.service';
 import { TokenService } from 'src/app/services/token.service';
+import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-proyects',
@@ -11,7 +13,7 @@ import { TokenService } from 'src/app/services/token.service';
 export class ProyectsComponent implements OnInit {
   projects: Projects[];
 
-  constructor(private sProject: ProjectsService, private tokenService: TokenService) { }
+  constructor(private sProject: ProjectsService, private tokenService: TokenService, private snackBar: MatSnackBar) { }
 
   isLogged = false;
 
@@ -32,7 +34,22 @@ export class ProyectsComponent implements OnInit {
     if(id != undefined){
     this.sProject.delete(id).subscribe(data =>{
       this.cargarProyectos();
+      this.deletedAlert();
     })
   }
 }
+
+durationInSeconds = 5;
+
+deletedAlert(){
+  this.snackBar.open('¡Se ha eliminado el proyecto!', 'Cerrar', {
+    duration: this.durationInSeconds * 1000 });
+  }
+
+drop(event: CdkDragDrop<string[]>) {
+  if(this.isLogged){
+  moveItemInArray(this.projects, event.previousIndex, event.currentIndex);
+  }
+  }
+
 }

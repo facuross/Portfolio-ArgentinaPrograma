@@ -10,23 +10,30 @@ import { NewSkillComponent } from './components/skills/new-skill.component';
 import { EditSkillComponent } from './components/skills/edit-skill.component';
 import { NewProjectComponent } from './components/proyects/new-project.component';
 import { EditProjectComponent } from './components/proyects/edit-project.component';
+import { CanActivateTeamGuard } from './can-activate-team.guard';
+import { AboutmeComponent } from './components/aboutme/aboutme.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'home', component: HomeComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full'},
-  { path: 'nuevaexp', component: NewExperienciaComponent },
-  { path: 'editexp/:id', component: EditExperienciaComponent },
-  { path: 'nuevaedu', component: NewformationComponent },
-  { path: 'editedu/:id', component: EditFormationComponent },
-  { path: 'nuevaskill', component: NewSkillComponent },
-  { path: 'editskill/:id', component: EditSkillComponent },
-  { path: 'nuevoproject', component: NewProjectComponent },
-  { path: 'editproject/:id', component: EditProjectComponent }
+  { path: 'aboutme', component: AboutmeComponent },
+  { path: 'nuevaexp', component: NewExperienciaComponent, canActivate: [CanActivateTeamGuard] },
+  { path: 'editexp/:id', component: EditExperienciaComponent, canActivate: [CanActivateTeamGuard] },
+  { path: 'nuevaedu', component: NewformationComponent, canActivate: [CanActivateTeamGuard] },
+  { path: 'editedu/:id', component: EditFormationComponent, canActivate: [CanActivateTeamGuard] },
+  { path: 'nuevaskill', component: NewSkillComponent, canActivate: [CanActivateTeamGuard] },
+  { path: 'editskill/:id', component: EditSkillComponent, canActivate: [CanActivateTeamGuard] },
+  { path: 'nuevoproject', component: NewProjectComponent, canActivate: [CanActivateTeamGuard] },
+  { path: 'editproject/:id', component: EditProjectComponent, canActivate: [CanActivateTeamGuard] }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {
+    onSameUrlNavigation: "ignore",
+    anchorScrolling:'enabled',
+    scrollPositionRestoration: 'enabled'
+  })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

@@ -1,38 +1,47 @@
 .header {
     background-color: #232F3E;
-    display: flex;
-    border-bottom: 1px solid black
+    display: grid;
+    grid-template-columns: 20% 1fr;
+    border-bottom: 1px solid black;
+    width: 100%;
+    height: 80px;
+    align-content: center;
 }
 
 .section-1 {
-    width: 20%;
     display: flex;
     align-items: center;
-    margin: auto 1rem;
+    margin: auto;
 }
 
 .img-logo {
-    width: 9rem;
+    width: 10vw;
 }
 
 .text {
     color: white;
-    font-size: 1rem;
+    font-size: 1vw;
+}
+
+.nav-menu {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
 }
 
 .section-2 {
-    width: 50%;
+    align-self: center;
     display: flex;
-    align-items: center;
     justify-content: space-around;
-
+    width: 100%;
 }
 
-.navbar-bar {
+.navbar-nav {
     list-style: none;
     display: flex;
     flex-direction: row;
-    align-items: center;
+    justify-content: space-evenly;
     width: 100%;
     height: 100%;
 }
@@ -40,25 +49,41 @@
 a.nav-link {
     color: white;
     font-weight: 500;
-    align-items: center;
+    font-size: 0.9rem;
+    padding: 2px;
 }
 
 .nav-item {
     height: 100%;
-    margin: 0 2rem;
+    margin: 0;
+    position: relative;
 }
 
-a.nav-link:hover {
-    color: #0D658B;
+.nav-item::before {
+    content: "";
+    display: block;
+    width: 0%;
+    height: 2px;
+    background-color: #0D658B;
+    transition: all 0.5s;
+    position: absolute;
+    bottom: 0;
+}
+
+.nav-item:hover::before {
+    width: 100%;
+    color: #0d658b;
+}
+
+.nav-link:hover {
+    color: #0d658b;
 }
 
 .section-3 {
-    width: 20%;
     display: flex;
-    flex-direction: row;
+    justify-content: flex-end;
     align-items: center;
     margin-right: 1rem;
-    margin-left: 3rem;
 }
 
 .info {
@@ -75,9 +100,12 @@ a.nav-link:hover {
 
 #icons {
     margin-left: 1rem;
-    font-size: 0.5rem;
     align-items: center;
     display: flex;
+}
+
+#icons i {
+    font-size: 1.2em;
 }
 
 .btn-login {
@@ -86,12 +114,12 @@ a.nav-link:hover {
     border: transparent;
     color: white;
     padding: 0.5rem 1.5rem;
-    margin-left: 0.5rem;
+    margin-left: 1.5rem;
     font-weight: 500;
     height: 3rem;
     justify-content: center;
-    width: 10rem;
-
+    width: 7rem;
+    align-items: self end;
 }
 
 .btn-login:hover {
@@ -109,4 +137,143 @@ a.nav-link:hover {
     display: flex;
 }
 
+#menu-icon {
+    font-size: 40px;
+    margin-right: 20px;
+}
 
+.label-menu, .input-menu {
+    display:none;
+}
+
+@media (max-width: 1200px) {
+
+    a.nav-link {
+        font-size: 0.8rem;
+    }
+
+    i {
+        font-size: 1rem;
+    }
+    
+}
+
+@media (max-width: 1060px) {
+
+    a.nav-link {
+        font-size: 0.6rem;
+    }
+
+    i {
+        font-size: 0.8rem;
+    }
+
+    .btn-login {
+        height: 2rem;
+    }
+
+    button span {
+        font-size: 0.8rem;
+    }
+
+}
+
+@media (max-width: 740px) {
+
+
+    .label-menu {
+        display:block;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        color: #fff;
+    }
+
+    .nav-menu {
+        position: absolute;
+        top: 80px;
+        bottom: 0;
+        background-color: #2e4663f0;
+        width: 40%;
+        right: -100%;
+        height: auto;
+        transition: all 1s;
+        display: flex;
+        flex-direction: column;
+        align-self: auto;
+    }
+
+    .nav-menu:focus {
+        display: none;
+    }
+
+    .navbar-nav, .icons {
+        display: inline-block;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .nav-link:hover {
+        color: rgba(20, 17, 17, 0.886);
+    }
+
+    .nav-item {
+        height: auto;
+        display: flex;
+        justify-content: center;
+        margin-bottom: 30px;
+    }
+
+    .nav-item a {
+        font-size: 1em;
+    }
+    
+    .section-3 {
+        display: block;
+        justify-content: flex-start;
+        height: 300px;
+        align-self: center;
+        text-align: -webkit-center;
+        margin-top: 5px;
+    }
+
+    .icons {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        padding: 0;
+        margin-bottom: 50px;
+    }
+
+    a.nav-link {
+        font-size: 1.3em;
+    }
+
+    .btn-login {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        margin: 0;
+        width: 70%;
+        height: 50px;
+        align-items: center;
+        
+    }
+
+    .img-banner {
+        position: static;
+    }
+
+    #menu:checked ~ .nav-menu {
+        right: 0;
+    }
+
+    .img-logo {
+        width: 120px;
+    }
+
+    .text {
+        font-size: 15px;
+    }
+}

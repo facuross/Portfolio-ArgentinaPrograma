@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Educacion } from 'src/app/model/educacion';
 import { SEducacionService } from 'src/app/services/s-educacion.service';
 import { TokenService } from 'src/app/services/token.service';
+import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
+import { MatSnackBar } from '@angular/material/snack-bar';
+
 
 @Component({
   selector: 'app-formation',
@@ -11,7 +14,7 @@ import { TokenService } from 'src/app/services/token.service';
 export class FormationComponent implements OnInit {
   educacion: Educacion[] = [];
 
-  constructor(private sEducacion: SEducacionService, private tokenService: TokenService) { }
+  constructor(private sEducacion: SEducacionService, private tokenService: TokenService, private snackBar: MatSnackBar) { }
 
   isLogged = false;
 
@@ -34,6 +37,19 @@ export class FormationComponent implements OnInit {
         data => {
           this.cargarEducacion();
         })
+    }
+  }
+
+  durationInSeconds = 5;
+
+  deletedAlert(){
+    this.snackBar.open('¡Se ha eliminado la formación!', 'Cerrar', {
+      duration: this.durationInSeconds * 1000 });
+    }
+
+  drop(event: CdkDragDrop<string[]>) {
+    if(this.isLogged){
+    moveItemInArray(this.educacion, event.previousIndex, event.currentIndex);
     }
   }
 }

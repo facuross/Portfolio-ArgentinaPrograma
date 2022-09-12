@@ -1,24 +1,25 @@
 <div class="container">
-    <div class="row">
-        <h1>Proyectos</h1>
-        <div class="col-lg-2">
-            <button type="button" class="btn btn-dark" routerLink='/nuevoproject' *ngIf="isLogged">
-                Nuevo Proyecto
-            </button>
+    <div class="title">
+        <h1 id="projects">Proyectos</h1><br>
+        <button type="button" class="btn btn-dark" routerLink='/nuevoproject' *ngIf="isLogged">
+            Nuevo Proyecto
+        </button>
+    </div>
+    <div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)">
+    <div class="example-custom-placeholder" *cdkDragPlaceholder></div>
+    <div class="list" *ngFor="let Projects of projects" cdkDrag>
+        <div class="item-title">
+            <h2 style="margin-bottom: 8px">{{Projects.nombreP}}</h2>
+        </div>    
+        <div class="description">
+            <p>
+                {{Projects.descripcionP}}
+            </p>
         </div>
-        <div class="col-lg-11">
-            <table class="table">
-                <tbody>
-                    <tr *ngFor="let Projects of projects">
-                        <td><h2>{{Projects.nombreP}}</h2></td>
-                        <td>{{Projects.descripcionP}}</td>
-                        <td *ngIf="isLogged">
-                            <button routerLink='/editproject/{{Projects.id}}'><i class="bi bi-pencil-square"></i> Editar</button>
-                        </td>
-                        <td *ngIf="isLogged">
-                            <button (click)="delete(Projects.id)"><i class="bi bi-trash"></i> Eliminar</button>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+        <div class="buttons">            
+            <button class="changes" *ngIf="isLogged" routerLink='/editproject/{{Projects.id}}'><i class="bi bi-pencil-square" style="color:#e8e8e8"></i><span style="color:#e8e8e8"> Editar</span></button>
+            <button class="changes" *ngIf="isLogged" (click)="delete(Projects.id)"><i class="bi bi-trash" style="color:#e8e8e8"></i><span style="color:#e8e8e8"> Eliminar</span></button>
         </div>
+        <hr>
+    </div>
+</div>

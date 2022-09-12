@@ -1,5 +1,5 @@
 <div class="row">
-    <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
+    <div class="body col-xs-12 col-sm-2 col-md-2 col-lg-2">
         <img class="img-fluid" id="profile-photo"
             [src]="getSanitizeUrl(persona.img)"
             alt="foto perfil">
@@ -8,9 +8,16 @@
         <h2 class="card-title mb-2">{{persona.nombre}} {{persona.apellido}}</h2>
         <h3 class="card-subtitle mb-1 text-muted">{{persona.titulo}}</h3>
     </div>
-    <div class="card col-xs-12 col-sm-7 col-md-7 col-lg-7" id="profile-2">
-        <h2 class="card-title">Sobre mi <button  *ngIf="isLogged" class="edit-button"  style="height: 40px" (click)="openPopup()"><i class="bi bi-pencil-square"></i> Editar
-        </button></h2>
+    <div class="card col-xs-12"  id="profile-2">
+        <div class="header"  id="aboutme">
+            <div class="title" style="width:100%">
+                <h1 class="card-title">Sobre mi </h1>
+            </div>
+            <div class="button"> 
+                <button  *ngIf="isLogged" class="changes" style="color:#e8e8e8" (click)="openPopup()"><i class="bi bi-pencil-square" style="color:#e8e8e8"></i><span> Editar</span>
+                </button>
+            </div>
+        </div>
         <div class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display':displayStyle}">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">

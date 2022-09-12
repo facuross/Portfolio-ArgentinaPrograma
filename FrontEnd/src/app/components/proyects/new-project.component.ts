@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { Projects } from 'src/app/model/projects';
 import { ProjectsService } from 'src/app/services/projects.service';
@@ -12,7 +13,7 @@ export class NewProjectComponent implements OnInit {
   nombreP: string = "";
   descripcionP: string = "";
 
-  constructor(private sProject: ProjectsService, private router: Router) { }
+  constructor(private sProject: ProjectsService, private router: Router, private snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
   }
@@ -21,10 +22,10 @@ export class NewProjectComponent implements OnInit {
     const project = new Projects(this.nombreP, this.descripcionP);
     this.sProject.save(project).subscribe(data => 
       {
-        alert('Proyecto agregado');
+        this.succesAlert();
         this.router.navigate(['']);
       }, err => {
-        alert('No se pudo agregar el proyecto');
+        this.failAlert();
         this.router.navigate(['']);
       }
       )
@@ -34,6 +35,17 @@ export class NewProjectComponent implements OnInit {
     this.router.navigate(['']);
   }
 
+  durationInSeconds = 5;
+
+  succesAlert(){
+    this.snackBar.open('¡La carga ha sido exitosa!', 'Cerrar', {
+      duration: this.durationInSeconds * 1000 });
+    }
+
+  failAlert(){
+    this.snackBar.open('Ocurrió un error durante la carga', 'Cerrar', {
+      duration: this.durationInSeconds * 1000 });
+    }
 
 
 

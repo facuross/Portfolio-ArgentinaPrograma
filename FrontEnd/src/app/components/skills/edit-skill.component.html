@@ -1,19 +1,24 @@
-<div class="container">
-    <div class="row">
-        <div>
-            <form (ngSubmit)="onUpdate()" novalidate #f="ngForm">
-                <div class="formgroup">
-                    <label for="title">Skill</label>
-                    <input type="text" class="form-control" id="title" name="title" [(ngModel)]="skill.title" required>
-                </div>
-                <div class="formgroup">
-                    <label for="percent">Descripcion</label>
-                    <input type="text" class="form-control" id="percent" name="percent" [(ngModel)]="skill.percent" required>
-                </div>
-                <button class="btn btn-primary">
-                    Guardar Cambios
-                </button>
-            </form>
+<div class="contenedor">
+    <form (ngSubmit)="onUpdate()" novalidate #f="ngForm">
+        <div class="formgroup">
+            <label for="title">Skill</label>
+            <input type="text" class="form-control" id="title" name="title" [(ngModel)]="skill.title" required autocomplete="off">
         </div>
-    </div>
+        <div class="formgroup">
+            <label for="percent">Progreso</label>
+            <input type="number" class="form-control" id="percent" name="percent" [(ngModel)]="skill.percent" required autocomplete="off">
+        </div>
+        <div class="formgroup">
+            <label for="percent">Imagen</label>
+            <input type="text" class="form-control" id="percent" name="percent" [(ngModel)]="skill.img" autocomplete="off">
+        </div>
+        <div class="buttons">
+            <button class="btn btn-primary">
+                Guardar Cambios
+            </button>
+            <button class="btn btn-danger" type="button" (click)="onCancel()">
+                Cerrar
+            </button>
+        </div>
+    </form>
 </div>

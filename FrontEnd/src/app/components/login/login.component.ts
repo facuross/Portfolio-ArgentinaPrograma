@@ -21,7 +21,9 @@ export class LoginComponent implements OnInit {
   errMsj!: string;
 
 
-  constructor(private tokenService: TokenService, private authService: AuthService, private router: Router) { }
+  constructor(private tokenService: TokenService, private authService: AuthService, private router: Router, private snackBar: MatSnackBar) { }
+  
+  durationInSeconds = 5;
 
 
   ngOnInit(): void {
@@ -46,10 +48,16 @@ export class LoginComponent implements OnInit {
         this.isLogginFail = true;
         this.errMsj = err.error.mensaje;
         console.log(this.errMsj);
+        this.openAlert();
       }
       );
   }
+  openAlert(){
+  this.snackBar.open('El usuario o la contraseña ingresados son incorrectos', 'Cerrar', {
+    duration: this.durationInSeconds * 1000 });
+  }
 }
+
 
 
 

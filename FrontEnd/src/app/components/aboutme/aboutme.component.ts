@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
 import { persona } from 'src/app/model/persona.model';
@@ -11,14 +11,18 @@ import { TokenService } from 'src/app/services/token.service';
   templateUrl: './aboutme.component.html',
   styleUrls: ['./aboutme.component.css']
 })
+
+
+
 export class AboutmeComponent implements OnInit {
   persona: persona = new persona("","","","","");
   http: any;
-  
+
   constructor(private datosPortfolio: ServiciosService, public perService: PersonaService, private tokenService: TokenService,
     private activatedRoute: ActivatedRoute, private router: Router, private sanitizer: DomSanitizer) { }
 
   isLogged = false;
+  isChecked = false;
 
   ngOnInit(): void {
     this.perService.getPersona().subscribe(data => {this.persona = data})
@@ -57,6 +61,10 @@ export class AboutmeComponent implements OnInit {
   getSanitizeUrl(url: string){
     return this.sanitizer.bypassSecurityTrustUrl(url);
   }
+
+
+
+
 /*
   capturarFile(url: any){
     const archivoCapturado = document.querySelector("input").files[0];

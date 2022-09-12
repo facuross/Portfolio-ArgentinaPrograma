@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Experiencia } from 'src/app/model/experiencia';
 import { SExperienciaService } from 'src/app/services/s-experiencia.service';
@@ -12,7 +13,7 @@ export class EditExperienciaComponent implements OnInit {
   expLab: Experiencia = null;
   
   constructor(private sExperiencia: SExperienciaService, private activatedRouter: ActivatedRoute, 
-    private router: Router) { }
+    private router: Router, private snackBar: MatSnackBar) { }
 
   ngOnInit(): void{
     const id = this.activatedRouter.snapshot.params['id'];
@@ -28,13 +29,14 @@ export class EditExperienciaComponent implements OnInit {
     const id = this.activatedRouter.snapshot.params['id'];
     if(this.expLab.inicio<= this.expLab.fin || this.expLab.fin === "Actualidad"){
     this.sExperiencia.update(id, this.expLab).subscribe(data =>{
+      this.succesAlert();
       this.router.navigate(['']);
     }, err => {
-      alert("Error al modificar experiencia");
+      this.failAlert();
       this.router.navigate(['']);
     })
     } else {
-      alert("El año de inicio no puede ser mayor al año de finalización")
+      this.errorAlert();
     }
   }
 
@@ -69,4 +71,21 @@ export class EditExperienciaComponent implements OnInit {
   onCancel(): void{
     this.router.navigate(['']);
   }
+
+  durationInSeconds = 5;
+
+  succesAlert(){
+    this.snackBar.open('¡Los datos han sido modificados correctamente!', 'Cerrar', {
+      duration: this.durationInSeconds * 1000 });
+    }
+
+  failAlert(){
+    this.snackBar.open('Ocurrió un error durante la carga', 'Cerrar', {
+      duration: this.durationInSeconds * 1000 });
+    }
+
+  errorAlert(){
+    this.snackBar.open('El año de inicio debe ser menor o igual que el año de finalización', 'Cerrar', {
+    duration: this.durationInSeconds * 1000 });
+    } 
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { Educacion } from 'src/app/model/educacion';
 import { SEducacionService } from 'src/app/services/s-educacion.service';
@@ -14,7 +15,7 @@ export class NewformationComponent implements OnInit {
   fin: string = '';
   descripcionEdu: string = '';
 
-  constructor(private sEducacion: SEducacionService, private router: Router) { }
+  constructor(private sEducacion: SEducacionService, private router: Router, private snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
     this.onLoad();
@@ -25,14 +26,14 @@ export class NewformationComponent implements OnInit {
     if(this.inicio<= this.fin || this.fin === "Actualidad"){
     this.sEducacion.save(edu).subscribe(
       data => {
-        alert("Formación agregada")
+        this.succesAlert();
         this.router.navigate(['']);
       }, err =>{
-        alert("No se pudo guardar la formación")
+        this.failAlert();
         this.router.navigate(['']);
       })
     } else {
-      alert("El año de inicio no puede ser mayor al año de finalización")
+      this.errorAlert();
     }
   }
 
@@ -79,5 +80,22 @@ export class NewformationComponent implements OnInit {
   onCancel(): void{
     this.router.navigate(['']);
   }
+
+durationInSeconds = 5;
+
+  succesAlert(){
+    this.snackBar.open('¡La carga ha sido exitosa!', 'Cerrar', {
+      duration: this.durationInSeconds * 1000 });
+    }
+
+  failAlert(){
+    this.snackBar.open('Ocurrió un error durante la carga', 'Cerrar', {
+      duration: this.durationInSeconds * 1000 });
+    }
+
+  errorAlert(){
+    this.snackBar.open('El año de inicio debe ser menor o igual que el año de finalización', 'Cerrar', {
+    duration: this.durationInSeconds * 1000 });
+    }  
   
 }

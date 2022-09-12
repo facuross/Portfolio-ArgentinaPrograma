@@ -28,7 +28,15 @@ import { NewSkillComponent } from './components/skills/new-skill.component';
 import { EditSkillComponent } from './components/skills/edit-skill.component';
 import { NewProjectComponent } from './components/proyects/new-project.component';
 import { EditProjectComponent } from './components/proyects/edit-project.component';
+import { DragDropModule } from '@angular/cdk/drag-drop';
+import { RouterModule, Routes, ExtraOptions } from '@angular/router';
 
+const routerOptions: ExtraOptions = {
+  anchorScrolling: "enabled",
+  scrollPositionRestoration: 'enabled'
+}
+
+const routes: Routes = [];
 
 @NgModule({
   declarations: [
@@ -62,7 +70,9 @@ import { EditProjectComponent } from './components/proyects/edit-project.compone
     MatSnackBarModule,
     HttpClientModule,
     NgCircleProgressModule.forRoot({}),
-    FormsModule
+    FormsModule,
+    DragDropModule,
+    RouterModule.forRoot(routes, routerOptions)
   ],
   providers: [
     ServiciosService,

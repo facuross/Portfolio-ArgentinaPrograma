@@ -1,0 +1,61 @@
+div.contenedor { 
+    height: 100%;
+    background: #00bf8f;  
+    background: -webkit-linear-gradient(to top, #c9ffbf99, #ffafbd66);  
+    background: linear-gradient(to top, #c9ffbf99, #ffafbd66), url(../../../assets/img/programming.jpeg);
+}
+
+form {
+    display:flex;
+    flex-direction: column;
+    width: 100%;
+
+}
+
+.formgroup {
+    display: inline;
+    justify-content: center;
+    align-self: center;
+    width: 50%;
+    height: 100%;
+}
+
+input {
+    background-color: white;
+    border: none;
+    border-radius: 0.2rem;
+}
+
+input:focus {
+    border-radius: 0.2rem;
+    background: -webkit-linear-gradient(to top, hsla(212, 56%, 11%, 0.87), hsla(184, 55%, 6%, 0.87)); 
+    background: linear-gradient(to top, hsla(212, 74%, 9%, 0.9), hsla(169, 59%, 6%, 0.85)); 
+    color: white;
+}
+
+textarea {
+    height: 12rem;
+}
+
+textarea:focus {
+    border-radius: 0.2rem;
+    background: -webkit-linear-gradient(to top, hsla(212, 56%, 11%, 0.87), hsla(184, 55%, 6%, 0.87)); 
+    background: linear-gradient(to top, hsla(212, 74%, 9%, 0.9), hsla(169, 59%, 6%, 0.85)); 
+    color: white;
+}
+
+label {
+    margin: 1rem auto;
+    font-weight: 500;
+    font-size: 1rem;
+    color:white;
+}
+
+.buttons {
+    margin-top: 3rem;
+    align-self: center;
+    width: 50%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
