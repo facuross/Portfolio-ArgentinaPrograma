@@ -18,7 +18,7 @@ public class SExperiencia {
     public List<Experiencia> list() {
         return rExperiencia.findAll();
     }
-    
+        
     public Optional<Experiencia> getOne(int id){
         return rExperiencia.findById(id);
     }

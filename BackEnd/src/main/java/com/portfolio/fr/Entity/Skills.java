@@ -16,19 +16,15 @@ public class Skills {
     @NotNull
     private String title;
     private String percent;
+    private String img;
 
     public Skills() {
     }
 
-    public Skills(int id, String title, String percent) {
-        this.id = id;
+    public Skills(String title, String percent, String img) {
         this.title = title;
         this.percent = percent;
-    }
-
-    public Skills(String title, String percent) {
-        this.title = title;
-        this.percent = percent;
+        this.img = img;
     }
 
     public int getId() {
@@ -53,6 +49,14 @@ public class Skills {
 
     public void setPercent(String percent) {
         this.percent = percent;
+    }
+
+    public String getImg() {
+        return img;
+    }
+
+    public void setImg(String img) {
+        this.img = img;
     }
 
 }

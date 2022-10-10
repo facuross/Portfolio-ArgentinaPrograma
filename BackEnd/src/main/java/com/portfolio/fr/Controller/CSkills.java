@@ -50,7 +50,7 @@ public class CSkills {
        if(skillsService.existsByTitle(dtoskill.getTitle()))
             return new ResponseEntity(new Mensaje("Esa experiencia exitse"), HttpStatus.BAD_REQUEST);
         
-        Skills skill = new Skills (dtoskill.getTitle(), dtoskill.getPercent());
+        Skills skill = new Skills (dtoskill.getTitle(), dtoskill.getPercent(), dtoskill.getImg());
         skillsService.save(skill);
         return new ResponseEntity(new Mensaje("Experiencia agregada"), HttpStatus.CREATED);
     }
@@ -69,6 +69,7 @@ public class CSkills {
         Skills skill = skillsService.getOne(id).get();
         skill.setTitle(dtoskill.getTitle());
         skill.setPercent(dtoskill.getPercent());
+        skill.setImg(dtoskill.getImg());
         
         skillsService.save(skill);
         return new ResponseEntity(new Mensaje("Experiencia Actualizada"), HttpStatus.OK);

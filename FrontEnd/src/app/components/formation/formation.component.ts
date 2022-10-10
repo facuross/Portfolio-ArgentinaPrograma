@@ -36,6 +36,7 @@ export class FormationComponent implements OnInit {
       this.sEducacion.delete(id).subscribe(
         data => {
           this.cargarEducacion();
+          this.deletedAlert();
         })
     }
   }

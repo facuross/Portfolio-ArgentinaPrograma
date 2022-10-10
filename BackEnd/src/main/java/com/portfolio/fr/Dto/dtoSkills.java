@@ -9,14 +9,17 @@ public class dtoSkills {
     private String title;
     @NotBlank
     private String percent;
+    private String img;
 
     public dtoSkills() {
     }
 
-    public dtoSkills(String title, String percent) {
+    public dtoSkills(String title, String percent, String img) {
         this.title = title;
         this.percent = percent;
+        this.img = img;
     }
+
 
     public String getTitle() {
         return title;
@@ -34,7 +37,13 @@ public class dtoSkills {
         this.percent = percent;
     }
 
+    public String getImg() {
+        return img;
+    }
 
+    public void setImg(String img) {
+        this.img = img;
+    }
     
-    
+     
 }

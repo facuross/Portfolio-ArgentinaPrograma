@@ -46,8 +46,4 @@ export class NewProjectComponent implements OnInit {
     this.snackBar.open('Ocurrió un error durante la carga', 'Cerrar', {
       duration: this.durationInSeconds * 1000 });
     }
-
-
-
-
 }
